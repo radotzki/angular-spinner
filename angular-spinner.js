@@ -4,12 +4,7 @@
  * Copyright (C) 2013, 2014, 2015, Uri Shaked and contributors.
  */
 
-'format amd';
-
-(function (root) {
-	'use strict';
-
-	function factory(angular, Spinner) {
+(function factory(angular, Spinner) {
 
 		return angular
 			.module('angularSpinner', [])
@@ -112,16 +107,4 @@
 					}
 				};
 			}]);
-	}
-
-    if ((typeof module === 'object') && module.exports) {
-		/* CommonJS module */
-		module.exports = factory(window.angular, require('spin.js'));
-	} else if (typeof define === 'function' && define.amd) {
-		/* AMD module */
-		define(['angular', 'spin'], factory);
-	} else {
-		/* Browser global */
-		factory(root.angular, root.Spinner);
-	}
-}(this));
+})(window.angular, window.Spinner);
